@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Redirect } from 'react-router-dom'
+import {getDateString} from '../utils/general.js'
 
 class AddPresentation extends Component {
     state = {
@@ -9,12 +10,13 @@ class AddPresentation extends Component {
             evaluater:'',
             topic: '',
             articles: [],
-            date: '',
+            date: getDateString(new Date()),
             keywords: [],
             summary: ''
         }
     }
 
+   
     setRedirect = () => {
         this.setState({
             redirect: true
@@ -42,6 +44,21 @@ class AddPresentation extends Component {
             case 'evaluater':
               this.setState({data: {...this.state.data,evaluater: event.target.value}});
               break;
+            case 'topic':
+              this.setState({data: {...this.state.data,topic: event.target.value}});
+              break;
+            case 'articles':
+              this.setState({data: {...this.state.data,articles: event.target.value}});
+              break;
+            case 'date':
+              this.setState({data: {...this.state.data,date: event.target.value}});
+              break;
+            case 'keywords':
+              this.setState({data: {...this.state.data,keywords: event.target.value}});
+              break;
+            case 'summary':
+              this.setState({data: {...this.state.data,summary: event.target.value}});
+              break;
             default:
               
           }
@@ -56,15 +73,15 @@ class AddPresentation extends Component {
             <form  onSubmit={this.save}>
                 <div className="inputWrapper">
                     <label className="inputLabel">Presenter:</label>
-                    <input name="presenter" className="inputField" type="text" value={this.state.presenter} onChange={this.handleChange} />
+                    <input name="presenter" className="inputField" type="text" value={this.state.data.presenter} onChange={this.handleChange} />
                 </div>
                 <div className="inputWrapper">
                     <label className="inputLabel">Evaluater:</label>
-                    <input name="evaluater" className="inputField" type="text" value={this.state.evaluater} onChange={this.handleChange} />
+                    <input name="evaluater" className="inputField" type="text" value={this.state.data.evaluater} onChange={this.handleChange} />
                 </div> 
                 <div className="inputWrapper">
                     <label className="inputLabel">Topic:</label>
-                    <input name="topic" className="inputField" type="text" value={this.state.topic} onChange={this.handleChange} />
+                    <input name="topic" className="inputField" type="text" value={this.state.data.topic} onChange={this.handleChange} />
                 </div>  
                 <div className="inputWrapper">
                     <label className="inputLabel">Articles:</label>
@@ -72,14 +89,14 @@ class AddPresentation extends Component {
                 </div>  
                 <div className="inputWrapper">
                     <label className="inputLabel">Date:</label>
-                    <input name="date" className="inputField" type="text" value={this.state.date} onChange={this.handleChange} />
+                    <input name="date" className="inputField" type="date" value={this.state.data.date} onChange={this.handleChange} />
                 </div>  
                 <div className="inputWrapper">
                     <label className="inputLabel">keywords:</label>
-                    <input name="keywords" className="inputField" type="text" value={this.state.keywords} onChange={this.handleChange} />
+                    <input name="keywords" className="inputField" type="text" value={this.state.data.keywords} onChange={this.handleChange} />
                 </div>  
                 <label >Summary:</label>
-                <textarea name="summary"value={this.state.summary} onChange={this.handleChange} rows="5"/>
+                <textarea name="summary"value={this.state.data.summary} onChange={this.handleChange} rows="5"/>
                 <div className="button-wrapper">
                     <button  type="submit" className="whiteFont blueBackground">Save</button>
                     <button type="button" onClick={this.setRedirect} className="whiteFont blueBackground">Cancel</button>

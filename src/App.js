@@ -13,9 +13,7 @@ class App extends Component {
   };
 
   componentDidMount () {  
-    console.log('inside componentDismount')
       axios.get('/presentations').then((response) => {
-          console.log(response);
           this.setState({
               presentations:response.data
           }) // error handling ? 
@@ -23,12 +21,21 @@ class App extends Component {
   }
 
   addPresentation = (presentation) => {
-    console.log('jnside add presentation',presentation)
     axios.post('/presentations', presentation)
     .then((response) => {
-      console.log(response);
-      console.log(response);
       this.setState({presentations:[...this.state.presentations,response.data]});
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
+  deletePresentation = (id,index)=>{
+    axios.post(`/presentations/${id}`)
+    .then((response) => {
+      let copyOfpresentations = this.state.presentations;
+      copyOfpresentations.splice(index,1);
+      this.setState({presentations:copyOfpresentations});
     })
     .catch((error) => {
       console.log(error);
@@ -41,7 +48,7 @@ class App extends Component {
         <div className="main-wrapper">
         <Header />
         <Route exact path='/' component={Home} />
-        <Route  path='/presentations' render={(props)=><Presentaions {...props} presentations={this.state.presentations} addPresentation={this.addPresentation}/>}/>
+        <Route  path='/presentations' render={(props)=><Presentaions {...props} presentations={this.state.presentations} addPresentation={this.addPresentation} deletePresentation={this.deletePresentation}/>}/>
         </div>        
       </Router> 
     )
