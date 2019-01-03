@@ -7,10 +7,10 @@ import ListPresentations from './ListPresentations';
 
 const Presentaions = (props) => {
 
-    const {presentations, addPresentation} = props;
+    const {presentations, addPresentation, deletePresentation} = props;
     return (
         <div className="presentations-wrapper">
-            <Route exact path='/presentations'  render={(props) => <ListPresentations {...props} presentations={presentations}/>}/>
+            <Route exact path='/presentations'  render={(props) => <ListPresentations {...props} presentations={presentations} deletePresentation={deletePresentation}/>}/>
             <Route exact path='/presentations/newPresentation' render={(props) => <AddPresentation {...props} addPresentation={addPresentation}/>}/>
         </div>
     )

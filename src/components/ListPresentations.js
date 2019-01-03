@@ -4,11 +4,11 @@ import { NavLink } from 'react-router-dom';
 
 const ListPresentations = (props) => {
     const displaypresentations = props.presentations.map((presentation,index)=>{        
-        return <Presentation key={index + 1} presentation={presentation} />;
+        return <Presentation key={index + 1} presentationIndex = {index} presentation={presentation} deletePresentation={props.deletePresentation}/>;
     });
     
     return (
-        <div>
+        <div className="presentationList">
             <div className="navWrapper">     
                <NavLink to='/presentations/newPresentation' className="whiteFont blueBackground">Add Presentation</NavLink>
             </div> 

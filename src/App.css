@@ -3,6 +3,10 @@ body {
   
 }
 
+div {
+  box-sizing: border-box;
+}
+
 /* general */
 .whiteFont {
   color: white;
@@ -23,6 +27,8 @@ body {
 
 header {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   background: #232323;
 }
 
@@ -31,27 +37,21 @@ header {
   background: #F1F7F7;
 }
 
-.header-titles {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 70%;
-}
 
 .main-title {
   font-family: 'Londrina Shadow', cursive;
   font-size: 75px;
-  color: #aaaaaa;
-  margin: 60px 0 0 0;
+  color: 	#E5C36A;
+  margin: 50px 0 30px 0;
+  letter-spacing: 6px;
 }
 
 .sub-title {
     color: #bbbbbb;
-    margin: 0px 0 70px 0;
+    margin: 0px 0 50px 0;
 }
 
 .presentations-wrapper {
-  border: 1px solid red;
   display: flex;
   justify-content: center;  
   padding: 30px;
@@ -59,17 +59,25 @@ header {
   color:black;
 }
 
+.presentationList{
+  width: 100%;
+}
 .presentation {
   display: flex;
   border-bottom: 1px solid gray;
+  width: 100%;
 }
 
-.presentationInfo {
+.presentationInfo { 
   padding: 5px;
   margin: 5px;
-  font-size: 15px;
+  font-size: 18px;
+  width: 15%;
 }
 
+.articlesLinks{
+  margin: 0;
+}
 .presentationInfo-title {
   font-weight: bold;
   font-size: 18px;

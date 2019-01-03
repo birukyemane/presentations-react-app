@@ -31,7 +31,7 @@ class App extends Component {
   }
 
   deletePresentation = (id,index)=>{
-    axios.post(`/presentations/${id}`)
+    axios.delete(`/presentations/${id}`)
     .then((response) => {
       let copyOfpresentations = this.state.presentations;
       copyOfpresentations.splice(index,1);

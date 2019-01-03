@@ -69,7 +69,6 @@ class AddPresentation extends Component {
     return (
         <div className="formContainer">
             {this.renderRedirect()}
-            <h3>New Presentation</h3>            
             <form  onSubmit={this.save}>
                 <div className="inputWrapper">
                     <label className="inputLabel">Presenter:</label>
