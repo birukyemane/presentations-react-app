@@ -13,4 +13,6 @@
 
 ## How to use it 
 
-* clone it and install necessary packges
+* clone this repo and install necessary packges
+* you also need to clone the Share presentations server 
+* It will be deployed in Heroku and in future(after it is completed totally) 
